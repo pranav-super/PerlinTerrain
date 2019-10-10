@@ -116,13 +116,10 @@ public class PerlinNoise : MonoBehaviour
         //per chunk
         for (int x = 0; x < chunkSizeVerts-1; x++) //or x < chunkSizeBlocks
         {
-            //Debug.Log("slatt x");
             for (int y = 0; y < chunkSizeVerts-1; y++)
             {
-                //Debug.Log("slatt y");
                 for (int z = 0; z < chunkSizeVerts-1; z++)
                 {
-                    //Debug.Log("slatt z");
                     if (x==0 && y == 0 && z == 0)
                     {
                         continue;
@@ -137,7 +134,6 @@ public class PerlinNoise : MonoBehaviour
                     //if combineInstance has too many verts: //IMPLEMENT THIS LOGIC LATER, MAYBE IF COMBINING CHUNKS???
                     //save the current combineInstance to a mesh
                     //make a new one
-                    //Debug.Log("slatt");
                     //Debug.Log(wholeMesh[blockNum]);
                     wholeMesh[blockNum] = new CombineInstance();
                     wholeMesh[blockNum].mesh = m;

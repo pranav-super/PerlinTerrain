@@ -9,7 +9,7 @@ public class MarchingCubes3Clean : MonoBehaviour
     //static Mesh mesh;
     //Vector3[] vertices;
 
-    public static int chunkDim = 2;
+    public static int chunkDim = 5;
 
     static GameObject thisObj;
 

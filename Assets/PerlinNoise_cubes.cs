@@ -60,7 +60,7 @@ public class PerlinNoise_cubes : MonoBehaviour
         //index += (vertex value [1 or 0]) * 2^(vertex index)
         //lookup, then make triangle
 
-        CombineInstance[] wholeMesh = new CombineInstance[(int)Mathf.Pow(chunkSizeBlocks, 3)];
+        /*CombineInstance[] wholeMesh = new CombineInstance[(int)Mathf.Pow(chunkSizeBlocks, 3)];
 
         Mesh mesh = GetComponent<MeshFilter>().mesh;
 
@@ -82,18 +82,15 @@ public class PerlinNoise_cubes : MonoBehaviour
         wholeMesh[0] = new CombineInstance();
         wholeMesh[0].mesh = temp;
 
-        //Debug.Log(chunkSizeBlocks);
+        //Debug.Log(chunkSizeBlocks);*/
 
         //per chunk
         for (int x = 0; x < chunkSizeBlocks; x++)
         {
-            //Debug.Log("slatt x");
             for (int y = 0; y < chunkSizeBlocks; y++)
             {
-                //Debug.Log("slatt y");
                 for (int z = 0; z < chunkSizeBlocks; z++)
                 {
-                    //Debug.Log("slatt z");
                     /*if (x == 0 && y == 0 && z == 0)
                     {
                         continue;
@@ -108,7 +105,6 @@ public class PerlinNoise_cubes : MonoBehaviour
                     //if combineInstance has too many verts: //IMPLEMENT THIS LOGIC LATER, MAYBE IF COMBINING CHUNKS???
                     //save the current combineInstance to a mesh
                     //make a new one
-                    //Debug.Log("slatt");
                     //Debug.Log(wholeMesh[blockNum]);
                     wholeMesh[blockNum] = new CombineInstance();
                     wholeMesh[blockNum].mesh = m;
@@ -120,7 +116,8 @@ public class PerlinNoise_cubes : MonoBehaviour
                     //int voxel = (int)chunkData[x, y, z];
                     //Debug.Log("Block #:" + blockNum + ", isOn: " + chunkData[x, y, z]);
                     if ((int)hollowedChunkData[x, y, z] > 0) {
-                        wholeMesh[blockNum] = new CombineInstance();
+                        Instantiate(prefab, MarchingCubes3Clean.beginningCoordinates(new Vector3(0, 0, 0), blockNum, chunkSizeBlocks), Quaternion.identity);
+                        /*wholeMesh[blockNum] = new CombineInstance();
                         wholeMesh[blockNum].mesh = prefab.GetComponent<MeshFilter>().sharedMesh;
                         Debug.Log(prefab.GetComponent<MeshFilter>().mesh.vertices.Length);
                         wholeMesh[blockNum].mesh.vertices = new Vector3[] { new Vector3(wholeMesh[blockNum].mesh.vertices[0].x + x, wholeMesh[blockNum].mesh.vertices[0].y + y, wholeMesh[blockNum].mesh.vertices[0].z + z),
@@ -132,15 +129,14 @@ public class PerlinNoise_cubes : MonoBehaviour
                                                                             new Vector3(wholeMesh[blockNum].mesh.vertices[6].x + x, wholeMesh[blockNum].mesh.vertices[6].y + y, wholeMesh[blockNum].mesh.vertices[6].z + z),
                                                                             new Vector3(wholeMesh[blockNum].mesh.vertices[7].x + x, wholeMesh[blockNum].mesh.vertices[7].y + y, wholeMesh[blockNum].mesh.vertices[7].z + z),
                          new Vector3(wholeMesh[blockNum].mesh.vertices[6].x + x, wholeMesh[blockNum].mesh.vertices[6].y + y, wholeMesh[blockNum].mesh.vertices[6].z + z), new Vector3(wholeMesh[blockNum].mesh.vertices[6].x + x, wholeMesh[blockNum].mesh.vertices[6].y + y, wholeMesh[blockNum].mesh.vertices[6].z + z), new Vector3(wholeMesh[blockNum].mesh.vertices[6].x + x, wholeMesh[blockNum].mesh.vertices[6].y + y, wholeMesh[blockNum].mesh.vertices[6].z + z), new Vector3(wholeMesh[blockNum].mesh.vertices[6].x + x, wholeMesh[blockNum].mesh.vertices[6].y + y, wholeMesh[blockNum].mesh.vertices[6].z + z), new Vector3(wholeMesh[blockNum].mesh.vertices[6].x + x, wholeMesh[blockNum].mesh.vertices[6].y + y, wholeMesh[blockNum].mesh.vertices[6].z + z), new Vector3(wholeMesh[blockNum].mesh.vertices[6].x + x, wholeMesh[blockNum].mesh.vertices[6].y + y, wholeMesh[blockNum].mesh.vertices[6].z + z), new Vector3(wholeMesh[blockNum].mesh.vertices[6].x + x, wholeMesh[blockNum].mesh.vertices[6].y + y, wholeMesh[blockNum].mesh.vertices[6].z + z), new Vector3(wholeMesh[blockNum].mesh.vertices[6].x + x, wholeMesh[blockNum].mesh.vertices[6].y + y, wholeMesh[blockNum].mesh.vertices[6].z + z), new Vector3(wholeMesh[blockNum].mesh.vertices[6].x + x, wholeMesh[blockNum].mesh.vertices[6].y + y, wholeMesh[blockNum].mesh.vertices[6].z + z), new Vector3(wholeMesh[blockNum].mesh.vertices[6].x + x, wholeMesh[blockNum].mesh.vertices[6].y + y, wholeMesh[blockNum].mesh.vertices[6].z + z), new Vector3(wholeMesh[blockNum].mesh.vertices[6].x + x, wholeMesh[blockNum].mesh.vertices[6].y + y, wholeMesh[blockNum].mesh.vertices[6].z + z), new Vector3(wholeMesh[blockNum].mesh.vertices[6].x + x, wholeMesh[blockNum].mesh.vertices[6].y + y, wholeMesh[blockNum].mesh.vertices[6].z + z), new Vector3(wholeMesh[blockNum].mesh.vertices[6].x + x, wholeMesh[blockNum].mesh.vertices[6].y + y, wholeMesh[blockNum].mesh.vertices[6].z + z),};
-                        
-                        //Instantiate(prefab, MarchingCubes3Clean.beginningCoordinates(new Vector3(0, 0, 0), blockNum, chunkSizeBlocks), Quaternion.identity);
+                        */
                     }
                 }
             }
         }
 
 
-        mesh = GetComponent<MeshFilter>().mesh; //mesh is invisible now.
+        /*mesh = GetComponent<MeshFilter>().mesh; //mesh is invisible now.
 
         mesh.Clear();
 
